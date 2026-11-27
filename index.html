@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zayd Zafar Jahangir</title>
+<meta name="description" content="Portfolio of Zayd Zafar Jahangir, Computer Science student at MSOE and Engineering Intern at SmartGoal.AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (max 1080px) with a two-column project grid; the hero is a field-line motif tying the work back to SmartGoal's pitch. */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --ink: #142033;
+  --muted: #546178;
+  --line: #dde3ec;
+  --accent: #1f4e8c;
+  --accent-soft: #e6eef9;
+  --turf: #2c7a4e;
+  --turf-soft: #e5f3eb;
+  --warm: #b5520f;
+  --font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1520; --surface: #151f2e; --ink: #e8edf5; --muted: #9aa8bd; --line: #26334a;
+    --accent: #7fb0f0; --accent-soft: #1a2b45; --turf: #6fcf97; --turf-soft: #15301f; --warm: #f0a868;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1520; --surface: #151f2e; --ink: #e8edf5; --muted: #9aa8bd; --line: #26334a;
+  --accent: #7fb0f0; --accent-soft: #1a2b45; --turf: #6fcf97; --turf-soft: #15301f; --warm: #f0a868;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { color-scheme: light; scroll-behavior: smooth; }
+body { margin: 0; }
+img { max-width: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Top bar */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.mark { font-family: var(--font-display); font-weight: 800; font-size: 17px; color: var(--ink); text-decoration: none; }
+.mark span { color: var(--turf); }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 600; }
+.nav a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { padding-block: 72px 56px; position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 6vw, 60px); line-height: 1.05; font-weight: 800; margin-top: 14px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lede { margin-top: 20px; font-size: 19px; color: var(--muted); max-width: 58ch; }
+.hero-meta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); background: var(--surface); border-radius: 999px;
+  padding: 6px 14px; font-size: 14.5px; font-weight: 600; color: var(--ink); text-decoration: none;
+}
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--turf); }
+.pitch { width: 100%; max-width: 420px; justify-self: end; }
+.pitch svg { width: 100%; height: auto; display: block; }
+
+/* Sections */
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 28px; }
+.sec-head h2 { font-size: clamp(26px, 3.4vw, 34px); font-weight: 800; }
+.sec-head p { color: var(--muted); max-width: 52ch; }
+
+/* Featured project */
+.feature {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 32px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 36px;
+}
+.feature + .feature { margin-top: 24px; }
+.feature h3 { font-size: 26px; font-weight: 800; margin-top: 8px; }
+.feature .role { color: var(--muted); margin-top: 4px; font-weight: 600; }
+.feature .body { display: grid; gap: 16px; min-width: 0; }
+.feature ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.feature li::marker { color: var(--turf); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--font-mono); font-size: 12.5px; padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.stat { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.stat b { display: block; font-family: var(--font-display); font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13.5px; color: var(--muted); line-height: 1.35; display: block; }
+.side { display: grid; gap: 18px; align-content: start; min-width: 0; }
+.diagram { border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: var(--bg); overflow-x: auto; }
+.diagram svg { display: block; width: 100%; min-width: 300px; height: auto; }
+.diagram figcaption { font-size: 13.5px; color: var(--muted); margin-top: 8px; }
+figure { margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--accent); color: var(--accent); }
+.btn.solid { background: var(--accent); color: var(--bg); }
+
+/* Mini browser for website */
+.browser { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--bg); }
+.browser .bar { display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.browser .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: block; }
+.browser .bar span { margin-left: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.browser .page { padding: 18px; display: grid; gap: 12px; }
+.browser .page .bh { font-family: var(--font-display); font-weight: 800; font-size: 22px; }
+.browser .page .sports { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.browser .page .sports div { border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 13px; background: var(--surface); }
+.browser .page .sports b { display: block; font-size: 14px; }
+.browser .navrow { display: flex; flex-wrap: wrap; gap: 6px; }
+.browser .navrow span { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+
+/* Email preview for assistant */
+.mail { border: 1px solid var(--line); border-radius: 10px; background: var(--bg); padding: 16px; font-size: 14.5px; display: grid; gap: 10px; }
+.mail .hdr { display: grid; gap: 2px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.mail .hdr b { font-family: var(--font-display); }
+.mail .hdr span { color: var(--muted); font-size: 13px; }
+.mail .item { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+.pill { font-family: var(--font-mono); font-size: 11.5px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.now { background: color-mix(in srgb, var(--warm) 16%, transparent); color: var(--warm); }
+.pill.soon { background: var(--accent-soft); color: var(--accent); }
+.pill.early { background: var(--turf-soft); color: var(--turf); }
+.mail .due { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mail .note { font-size: 12.5px; color: var(--muted); font-style: italic; }
+
+/* Coursework grid */
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.card { border: 1px solid var(--line); border-radius: 12px; padding: 22px; background: var(--surface); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card .course { font-family: var(--font-mono); font-size: 12px; color: var(--turf); letter-spacing: 0.04em; }
+.card h3 { font-size: 19px; font-weight: 700; }
+.card p { color: var(--muted); font-size: 16px; }
+.card .result { font-size: 15px; color: var(--ink); border-left: 3px solid var(--turf); padding-left: 10px; }
+
+/* Experience */
+.timeline { display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.job:last-child { border-bottom: 0; }
+.job .when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.job h3 { font-size: 18px; font-weight: 700; }
+.job .org { color: var(--muted); font-weight: 600; }
+.job p { margin-top: 6px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.skills div { min-width: 0; }
+.skills h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px 32px; }
+.contact h2 { font-size: 28px; font-weight: 800; }
+.contact p { color: var(--muted); margin-top: 6px; }
+.contact .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.email { font-family: var(--font-mono); font-size: 15px; user-select: all; padding: 8px 12px; border: 1px dashed var(--line); border-radius: 8px; }
+button.copy { font: inherit; font-weight: 600; font-size: 15px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); cursor: pointer; }
+footer { padding-block: 32px 48px; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 860px) {
+  .hero-grid, .feature, .contact { grid-template-columns: minmax(0, 1fr); }
+  .pitch { justify-self: start; max-width: 360px; }
+  .grid, .skills { grid-template-columns: minmax(0, 1fr); }
+  .job { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .feature { padding: 22px; }
+  .hero { padding-block: 44px 40px; }
+  .nav { display: none; }
+}
+@media (max-width: 480px) {
+  .stats { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .browser .page .sports { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .goal { transition: transform 1.6s ease-in-out; }
+}
+</style>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">Zayd Zafar Jahangir<span>.</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#coursework">Coursework</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Computer Science · Milwaukee School of Engineering</p>
+        <h1>I build software that people use <em>on the field and in the classroom.</em></h1>
+        <p class="lede">Engineering Intern at SmartGoal.AI, where I build the company's mobile app and website. I also build tools for my own day-to-day, like an assistant that reads my Canvas courses and emails me a plan every morning.</p>
+        <div class="hero-meta">
+          <span class="chip"><span class="dot" aria-hidden="true"></span>Engineering Intern, SmartGoal.AI</span>
+          <a class="chip" href="https://www.linkedin.com/in/zayd-zafar-jahangir" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="pitch" aria-hidden="true">
+        <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="398" height="258" rx="12" fill="var(--turf-soft)" stroke="var(--line)"/>
+          <g fill="none" stroke="var(--turf)" stroke-width="1.6" opacity="0.55">
+            <rect x="20" y="20" width="360" height="220" rx="2"/>
+            <line x1="200" y1="20" x2="200" y2="240"/>
+            <circle cx="200" cy="130" r="34"/>
+            <rect x="20" y="80" width="44" height="100"/>
+            <rect x="336" y="80" width="44" height="100"/>
+            <rect x="20" y="105" width="16" height="50"/>
+            <rect x="364" y="105" width="16" height="50"/>
+          </g>
+          <g stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="4 5" fill="none" opacity="0.8">
+            <path d="M 34 130 C 70 130, 90 70, 128 70"/>
+            <path d="M 366 130 C 330 130, 310 190, 272 190"/>
+          </g>
+          <g class="goal" id="g1"><rect x="120" y="62" width="16" height="16" rx="3" fill="var(--accent)"/></g>
+          <g class="goal" id="g2"><rect x="264" y="182" width="16" height="16" rx="3" fill="var(--accent)"/></g>
+          <rect x="26" y="122" width="16" height="16" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.6"/>
+          <rect x="358" y="122" width="16" height="16" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.6"/>
+          <text x="32" y="232" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--muted)">LAYOUT: 2 SMALL-SIDED FIELDS · MOVE → LOWER → LOCKED</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Featured work</h2>
+        <p>Production software for a sports-tech company, plus a personal tool I use every day.</p>
+      </div>
+
+      <!-- SmartGoal app -->
+      <article class="feature">
+        <div class="body">
+          <div>
+            <p class="eyebrow">Mobile app · SmartGoal.AI · Oct 2026 – present</p>
+            <h3>SmartGoal app</h3>
+            <p class="role">iOS and Android app for moving motorized sports goals around a field</p>
+          </div>
+          <p>I joined while the app was an early prototype and turned it into a working product that sports facilities can use on game day, with real accounts, teams and live field control.</p>
+          <ul>
+            <li><strong>Accounts:</strong> sign-up, sign-in and account deletion, built to App Store requirements.</li>
+            <li><strong>Teams:</strong> staff join their facility with a code, and the owner decides what each role can do.</li>
+            <li><strong>Field control:</strong> pick a layout, confirm the field is clear, and watch the goals move live on every phone. A STOP button is always on screen.</li>
+            <li><strong>Goal tools:</strong> scan a goal's QR code to move it on its own, lock or unlock goals, and save field layouts.</li>
+            <li><strong>Design:</strong> a full redesign with light and dark themes, Spanish translation, schedules with reminders and calendar sync.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Mobile development</span><span class="tag">UI design</span>
+          </div>
+        </div>
+        <div class="side">
+          <div class="stats">
+            <div class="stat"><b>iOS</b><span>and Android from one codebase</span></div>
+            <div class="stat"><b>Live</b><span>updates on every phone</span></div>
+            <div class="stat"><b>2</b><span>themes and 2 languages</span></div>
+          </div>
+          <figure class="diagram">
+            <svg viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="flowT">
+              <title id="flowT">Moving goals in the app: pick a layout, confirm the field is clear, goals move, goals lock</title>
+              <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/></marker></defs>
+              <g font-family="Source Sans 3, Segoe UI, sans-serif" font-size="13" text-anchor="middle">
+                <rect x="10" y="10" width="140" height="40" rx="8" fill="var(--surface)" stroke="var(--line)"/><text x="80" y="35" fill="var(--ink)" font-weight="700">1. Pick a layout</text>
+                <rect x="190" y="10" width="140" height="40" rx="8" fill="var(--surface)" stroke="var(--line)"/><text x="260" y="35" fill="var(--ink)" font-weight="700">2. Confirm field clear</text>
+                <rect x="190" y="96" width="140" height="40" rx="8" fill="var(--surface)" stroke="var(--line)"/><text x="260" y="121" fill="var(--ink)" font-weight="700">3. Goals move</text>
+                <rect x="10" y="96" width="140" height="40" rx="8" fill="var(--turf-soft)" stroke="var(--turf)"/><text x="80" y="121" fill="var(--turf)" font-weight="700">4. Locked in place</text>
+              </g>
+              <line x1="150" y1="30" x2="188" y2="30" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ah)"/>
+              <line x1="260" y1="50" x2="260" y2="94" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ah)"/>
+              <line x1="190" y1="116" x2="152" y2="116" stroke="var(--accent)" stroke-width="1.6" marker-end="url(#ah)"/>
+            </svg>
+            <figcaption>How a facility moves its goals in the app. STOP works at every step.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- SmartGoal website -->
+      <article class="feature">
+        <div class="body">
+          <div>
+            <p class="eyebrow">Website · SmartGoal.AI</p>
+            <h3>smartgoal.ai</h3>
+            <p class="role">The company's public website and storefront</p>
+          </div>
+          <p>I designed and built SmartGoal.AI's website, the first place facility owners and operators learn about the product. It explains how self-moving goals turn one full-size pitch into several small-sided fields and shortens turnover between bookings.</p>
+          <ul>
+            <li>Product sections for soccer, lacrosse and field hockey, each written around what that sport's facility operators need.</li>
+            <li>Early Access sign-up, a Purchase page with a cart, and a Contact page.</li>
+            <li>Connected to the company's LinkedIn, Instagram, Facebook and X accounts.</li>
+          </ul>
+          <div class="links">
+            <a class="btn solid" href="https://smartgoal.ai" target="_blank" rel="noopener">Visit smartgoal.ai ↗</a>
+          </div>
+        </div>
+        <div class="side">
+          <div class="browser" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i><span>smartgoal.ai</span></div>
+            <div class="page">
+              <div class="navrow"><span>About</span><span>Early Access</span><span>Purchase</span><span>Contact Us</span></div>
+              <div class="bh">We move, you play.</div>
+              <div class="sports">
+                <div><b>Soccer</b>Goals reposition on a schedule or on demand</div>
+                <div><b>Lacrosse</b>Automated field reconfiguration</div>
+                <div><b>Field hockey</b>Precise goal placement</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Student Assistant -->
+      <article class="feature">
+        <div class="body">
+          <div>
+            <p class="eyebrow">Personal project · 2026</p>
+            <h3>Student Assistant</h3>
+            <p class="role">A personal assistant that connects to Canvas and my email and plans my day</p>
+          </div>
+          <p>I wanted one place that told me what to work on first, without opening every course. Student Assistant runs on my laptop, reads every class from Canvas, and emails me a plan.</p>
+          <ul>
+            <li><strong>Canvas sync:</strong> pulls assignments, quizzes, discussions and events from the Canvas calendar feed, or from the Canvas API when a token is available (adds submission status and announcements).</li>
+            <li><strong>Daily briefing:</strong> a 7 a.m. email with what to do first and why, what's due, and warnings for heavy days, plus a Sunday evening preview of the week.</li>
+            <li><strong>Alerts:</strong> heads-up emails when work is due within 24 hours or 3 hours, is overdue, or is newly posted, with Windows and phone push notifications. Quiet hours run from 11 p.m. to 7 a.m. except for urgent items.</li>
+            <li><strong>Dashboard:</strong> a local web page with what's due, a calendar and a focus timer.</li>
+            <li><strong>Private by design:</strong> uses only the Python standard library, and none of my data goes to an outside AI service.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">HTTP server</span><span class="tag">iCalendar</span><span class="tag">Canvas API</span><span class="tag">SMTP</span><span class="tag">HTML/CSS/JS</span>
+          </div>
+        </div>
+        <div class="side">
+          <div class="mail" aria-label="Example of a morning briefing email">
+            <div class="hdr">
+              <b>Your plan for Tuesday</b>
+              <span>Student Assistant · 7:00 AM</span>
+            </div>
+            <div class="item"><span class="pill now">Do first</span><span>Lab report: fruit classifier</span><span class="due">due 11:59 PM</span></div>
+            <div class="item"><span class="pill soon">Due soon</span><span>Unit 5 quiz</span><span class="due">Thu 9:00 AM</span></div>
+            <div class="item"><span class="pill early">Start early</span><span>Final project proposal</span><span class="due">next Fri</span></div>
+            <p class="note">Example email layout.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="coursework">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Coursework projects</h2>
+        <p>Software design in Java and deep learning on MSOE's Rosie GPU cluster.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <p class="course">SWE 2410 · Team of 2</p>
+          <h3>Bee Garden Simulator</h3>
+          <p>A JavaFX simulation where forager and patrol bees move through a garden of nectar and toxic flowers and gain or lose energy. Bee abilities such as armor and speed boosts are added at runtime with the Decorator pattern.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">Decorator</span></div>
+        </article>
+        <article class="card">
+          <p class="course">SWE 2410 · Team of 2</p>
+          <h3>Coconuts Game</h3>
+          <p>A JavaFX arcade game where a crab shoots falling coconuts with a laser. The scoreboard and game-over logic subscribe to hit events through the Observer pattern instead of being wired into the game loop.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">Observer</span></div>
+        </article>
+        <article class="card">
+          <p class="course">SWE 2410 · Individual</p>
+          <h3>Stack Calculator with Undo and Redo</h3>
+          <p>Each key press (digits, add, subtract, multiply, save, recall, clear) is a command object kept in a history, so any action can be undone and redone with the Command pattern.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Command</span></div>
+        </article>
+        <article class="card">
+          <p class="course">CSC 2611 AI Tools</p>
+          <h3>Japanese Character Recognition</h3>
+          <p>Compared dense and convolutional networks on the Kuzushiji-MNIST handwriting dataset across optimizers, epochs, batch sizes, augmentation and dropout, then retrained the best models on a Tesla T4 GPU.</p>
+          <p class="result">Best CNN: 95.35% test accuracy. Switching SGD to Adam raised the dense network from 75.21% to 88.33%.</p>
+          <div class="tags"><span class="tag">TensorFlow / Keras</span><span class="tag">CNN</span><span class="tag">GPU cluster</span></div>
+        </article>
+        <article class="card">
+          <p class="course">CSC 2611 AI Tools</p>
+          <h3>Fresh or Rotten Fruit Classifier</h3>
+          <p>Transfer learning with a pretrained VGG16 network to sort photos of apples, bananas and oranges into 6 fresh and rotten classes, trained in a container on the Rosie cluster.</p>
+          <p class="result">95.44% validation accuracy after 5 epochs.</p>
+          <div class="tags"><span class="tag">VGG16</span><span class="tag">Transfer learning</span><span class="tag">Keras</span></div>
+        </article>
+        <article class="card">
+          <p class="course">CSC 2611 AI Tools · Final project, in progress</p>
+          <h3>Wafer Defect Classification</h3>
+          <p>Classifying defect patterns (center, edge-ring, scratch and others) in wafer maps from the WM-811K dataset of about 811,000 maps from a real semiconductor fab.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Image classification</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="job">
+          <p class="when">Oct 2026 – Present</p>
+          <div><h3>Engineering Intern</h3><p class="org">SmartGoal.AI</p><p>Build the company's mobile app and website, from the backend to the screens.</p></div>
+        </div>
+        <div class="job">
+          <p class="when">Sep 2026 – Present</p>
+          <div><h3>A/V Student Technician</h3><p class="org">IT Department, Milwaukee School of Engineering</p><p>Set up and troubleshoot A/V and conferencing systems for classes and campus events, and give first-line tech support to faculty, staff and students.</p></div>
+        </div>
+        <div class="job">
+          <p class="when">Feb 2025 – Aug 2026</p>
+          <div><h3>Student Aide, One Stop</h3><p class="org">Harper College</p><p>Helped students in person, by phone, email and chat, and supported enrollment through outbound calling campaigns.</p></div>
+        </div>
+        <div class="job">
+          <p class="when">Sep 2025 – Apr 2026</p>
+          <div><h3>Senator; Secretary of Leadership &amp; Communications; Vice Chair</h3><p class="org">Harper College Student Government Association</p><p>Represented the student body, recorded minutes for Board of Trustees and President's Cabinet meetings, and ran SGA meetings and events.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><h2>Skills and education</h2></div>
+      <div class="skills">
+        <div>
+          <h3>Languages and frameworks</h3>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">JavaFX</span><span class="tag">TensorFlow / Keras</span></div>
+        </div>
+        <div>
+          <h3>Cloud and tools</h3>
+          <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Microsoft Azure</span><span class="tag">AWS</span><span class="tag">Google Cloud</span><span class="tag">Git / GitHub</span><span class="tag">Maven</span></div>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <p><strong>B.S. Computer Science</strong>, Milwaukee School of Engineering, Sep 2026 – present</p>
+          <p style="margin-top:8px"><strong>Associate in Science</strong>, Harper College, May 2026 · Phi Theta Kappa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Let's talk</h2>
+          <p>Open to software engineering internships and project work.</p>
+        </div>
+        <div class="row">
+          <span class="email" id="email">jahangirzaydzafar@gmail.com</span>
+          <button class="copy" id="copyBtn" type="button">Copy email</button>
+          <a class="btn" href="https://www.linkedin.com/in/zayd-zafar-jahangir" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Zayd Zafar Jahangir · Milwaukee, WI</div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('copyBtn');
+  var email = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    var text = email.textContent.trim();
+    function selectIt() {
+      var r = document.createRange(); r.selectNodeContents(email);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected, press Ctrl+C';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectIt);
+    } catch (e) { selectIt(); }
+    setTimeout(function () { btn.textContent = 'Copy email'; }, 2500);
+  });
+  // Gentle goal shuffle in the hero pitch
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    var g1 = document.getElementById('g1'), g2 = document.getElementById('g2'), on = false;
+    setInterval(function () {
+      on = !on;
+      g1.style.transform = on ? 'translate(-94px, 60px)' : 'none';
+      g2.style.transform = on ? 'translate(94px, -60px)' : 'none';
+    }, 3200);
+  }
+})();
+</script>
+</body>
+</html>
